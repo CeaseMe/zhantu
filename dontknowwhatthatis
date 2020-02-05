@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>简易滑动验证码</title>
+<style>
+	*{
+		padding:0px;
+		margin:0px;
+	}
+	body{
+		background-color:pink;
+		position:relative;
+	}
+	.head{
+		height:80px;
+		width:1540px;
+		background-color:#FFF;
+		opacity:0.5;	
+	}
+	
+	.head h1{
+	font-family: "Times New Roman", Times, serif;
+	padding-top: 18px;
+	padding-left: 100px;
+	font-size: 50px;
+	color: rgba(255,153,102,1);	
+	}
+	.head img{
+		position:absolute;
+		left:5px;
+		top:-1px;
+	}
+	.center{
+	height: 627px;
+	width: 631px;
+	position: absolute;
+	top: 128px;
+	left: 79px;
+	}
+	.center img{
+		padding-top:50px;
+		border-radius:25px;
+		opacity:0.4;
+	}
+	.center .zi{
+	font-size: 24px;
+	position: absolute;
+	top: 50px;
+	font-family: "Comic Sans MS", cursive;
+	color: rgba(0,0,0,1);	
+	}
+    .zi:first-letter {
+		color: #ff0000;
+		font-size:40px;
+		}
+	.boD {
+	
+	padding-left: 808px;
+	padding-top: 90px;
+	}
+	.bb{
+	height: 350px;
+	width: 500px;
+	background-color: #FFF;
+	margin-left: 900px;
+	margin-top: 130px;
+	border-radius: 25px;
+	position: absolute;
+	left: -6px;
+	top: 133px;
+	}
+	.bb #first {
+	height: 50px;
+	width: 50px;
+	margin-top: 250px;
+	margin-left: 200px;
+	width: 140px;
+	line-height: 38px;
+	text-align: center;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 1px 1px 1px #333;
+	border-radius: 5px;
+	position: absolute;
+	overflow: hidden;
+	top: 7px;
+	left: 138px;
+	}
+	.bb .xbox{
+		background-color:rgba(204,204,204,1);
+		border-radius:25px;
+		outline:none;
+		height:45px;
+		width:350px;
+		text-indent:20px;
+		margin:45px 40px 20px 30px;
+	}
+	input:focus{
+		border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+            }
+	.bb #conta{
+		height:50px;
+		width:500px;
+		position:relative;
+		bottom:120px;
+	}
+
+	.bb #conta .lock{
+		margin-right:20px;
+		margin-top:10px;
+		margin-left:450px;
+		position:absolute;
+	}
+	.bb .rem{
+		font-family:"方正喵呜体";
+		font-size:24px;
+		margin-bottom:100px;
+		margin-left:80px;
+	}
+	.bb #ji{
+	position: absolute;
+	left: 45px;
+	top: 276px;
+	}
+		
+</style>
+</head>
+
+<body>
+
+<div class="head">
+
+
+  <h1>
+    	EasyFun
+    </h1>
+  <img src="pic/5-rabbit.png" alt="rabby" width="79" height="-414" />
+</div>
+<div class="center">
+  <p class="zi">
+   	  Rabbits are small mammals in the family Leporidae of the order Lagomorpha (along with the hare and the pika). Oryctolagus cuniculus includes the European rabbit species and its descendants, the world's 305 breeds[1] of domestic rabbit. Sylvilagus includes 13 wild rabbit species, among them the 7 types of cottontail. The European rabbit, which has been introduced on every continent except Antarctica, is familiar throughout the world as a wild prey animal and as a domesticated form of livestock and pet. With its widespread effect on ecologies and cultures, the rabbit (or bunny) is, in many areas of the world, a part of daily life—as food, clothing, a companion, and as a source of artistic inspiration. 
+  </p>
+</div>
+
+<div class="bb" >
+
+  <input type="text" class="xbox" placeholder="电子邮件" id="mail" />
+  
+  <input type="pass" class="xbox" placeholder="密码" id="pass" />
+  
+  <button id="first" onmouseover="style.color='#EDB9B9'" onmouseout="style.color='black'">登录</button>
+  
+  <div id="conta"  >
+  	<img src="pic/unlock.png" class="lock" alt="lock" height="30px" width="30" id="animate" /> 
+  </div>
+  <img id="ji" src="pic/控件未选 (1).png" height="30" width="30" onclick="style.src='pic/控件已选 (1).png'"  />
+  <p class="rem">记住我</p>
+</div>
+
+<span class="center">
+<img src="pic/timg.gif" alt="cat" width="631" height="500"  /></span>
+
+<script>
+ onload=window.alert("Plz Enter the passcode");
+ 
+	var x=document.getElementById("pass");
+	x.addEventListener("click",myMove);
+	x.addEventListener("click",hidePass);
+	
+	function myMove() {
+  var elem = document.getElementById("animate");   
+  var pos = 0;
+  var id = setInterval(frame, 0.5);
+  function frame() {
+    if (pos == 400) {
+      clearInterval(id);
+	  document.getElementById("animate").src="pic/lock.png";
+    } else {
+      pos++; 
+      elem.style.right = pos + "px"; 
+    }
+  }
+}
+	function hidePass(){
+		x.type="password";
+	}
+
+
+
+</script>
+</body>
+</html>
